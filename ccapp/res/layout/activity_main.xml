@@ -19,7 +19,8 @@
 		    android:id="@+id/panic"
 			android:layout_width="wrap_content" 
 			android:layout_height="50px" 
-			android:src="@drawable/ccapp_panic"/>	
+			android:src="@drawable/ccapp_panic"
+			android:onClick="onPanicButtonClick"/>	
 	</LinearLayout>  
 	
     <TextView

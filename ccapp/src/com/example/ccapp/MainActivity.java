@@ -1,9 +1,17 @@
 package com.example.ccapp;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Point;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -27,7 +35,7 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
-
+	
 	public void onVoice() {
 		Intent i = new Intent(this, VoiceActivity.class);
 		startActivityForResult(i, VoiceActivity_ID);
@@ -51,5 +59,14 @@ public class MainActivity extends Activity {
 	public void onMore() {
 		Intent i = new Intent(this, MoreActivity.class);
 		startActivityForResult(i, MoreActivity_ID);
+	}
+	
+	public void onPanicButtonClick(View view) {
+		Context context = getApplicationContext();
+		CharSequence text = "You clicked the panic button!";
+		int duration = Toast.LENGTH_SHORT;
+
+		Toast toast = Toast.makeText(context, text, duration);
+		toast.show();
 	}
 }

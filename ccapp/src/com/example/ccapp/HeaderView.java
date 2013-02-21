@@ -33,8 +33,8 @@ public class HeaderView extends View {
 			int x = (int) e.getX();
 			int y = (int) e.getY();
 			
-			if (x > 250 && y < 50) {
-				
+			if (x > 330 && y < 50) {
+			
 			}
 			
 		}
