@@ -6,5 +6,20 @@
     <string name="menu_settings">Settings</string>
     <string name="welcome">Welcome to the Care Coordination App merged!</string>
     <string name="back">Back</string>
+     <string name="sampletasks"> 
+        Task 1 \n \n
+        Task 2 \n \n 
+        Task 3 \n \n
+        Task 4 \n \n
+        Task 5 \n \n
+        Task 6 \n \n
+        Task 7 \n \n
+        Task 8 \n \n
+        Task 9 \n \n
+        Task 10 \n \n
+        Task 11 \n \n
+        Task 12 \n \n
+        Task 13 \n \n
+        Task 14 \n \n </string>
 
 </resources>
