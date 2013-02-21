@@ -4,5 +4,6 @@
     <string name="app_name">ccapp</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+    <string name="welcome">Welcome to the Care Coordination App merged!</string>
 
 </resources>
