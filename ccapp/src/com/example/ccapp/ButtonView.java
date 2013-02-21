@@ -28,23 +28,23 @@ public class ButtonView extends View {
 	protected void init() {
 		button1 = new ShapeDrawable(new RectShape());
 		button1.getPaint().setColor(Color.GRAY);
-		button1.setBounds(0, 0, 40, 100);
+		button1.setBounds(0, 0, 100, 150);
 		
 		button2 = new ShapeDrawable(new RectShape());
-		button2.getPaint().setColor(Color.GRAY);
-		button2.setBounds(40, 0, 80, 100);
+		button2.getPaint().setColor(Color.BLACK);
+		button2.setBounds(100, 0, 200, 150);
 		
 		button3 = new ShapeDrawable(new RectShape());
 		button3.getPaint().setColor(Color.GRAY);
-		button3.setBounds(80, 0, 120, 100);
+		button3.setBounds(200, 0, 300, 150);
 		
 		button4 = new ShapeDrawable(new RectShape());
-		button4.getPaint().setColor(Color.GRAY);
-		button4.setBounds(120, 0, 160, 100);
+		button4.getPaint().setColor(Color.BLACK);
+		button4.setBounds(300, 0, 400, 150);
 		
 		button5 = new ShapeDrawable(new RectShape());
 		button5.getPaint().setColor(Color.GRAY);
-		button5.setBounds(160, 0, 200, 100);
+		button5.setBounds(400, 0, 500, 150);
 		
 		text1 = new Paint();
 		text1.setColor(Color.BLACK);
@@ -53,7 +53,7 @@ public class ButtonView extends View {
 		text1.setTextSize(15);
 		
 		text2 = new Paint();
-		text2.setColor(Color.BLACK);
+		text2.setColor(Color.WHITE);
 		text2.setTextAlign(Paint.Align.LEFT);
 		text2.setTypeface(Typeface.SANS_SERIF);
 		text2.setTextSize(15);
@@ -65,7 +65,7 @@ public class ButtonView extends View {
 		text3.setTextSize(15);
 		
 		text4 = new Paint();
-		text4.setColor(Color.BLACK);
+		text4.setColor(Color.WHITE);
 		text4.setTextAlign(Paint.Align.LEFT);
 		text4.setTypeface(Typeface.SANS_SERIF);
 		text4.setTextSize(15);
@@ -83,10 +83,10 @@ public class ButtonView extends View {
 		button3.draw(canvas);
 		button4.draw(canvas);
 		button5.draw(canvas);
-		canvas.drawText("Voice", 10, 40, text1);
-		canvas.drawText("Contacts", 50, 40, text2);
-		canvas.drawText("Friends", 90, 40, text3);
-		canvas.drawText("Games", 130, 40, text4);
-		canvas.drawText("More", 170, 40, text5);
+		canvas.drawText("Voice", 30, 70, text1);
+		canvas.drawText("Contacts", 115, 70, text2);
+		canvas.drawText("Friends", 220, 70, text3);
+		canvas.drawText("Games", 330, 70, text4);
+		canvas.drawText("More", 430, 70, text5);
 	}
 }
