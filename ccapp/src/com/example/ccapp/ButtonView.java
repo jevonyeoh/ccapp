@@ -105,19 +105,19 @@ public class ButtonView extends View {
 				return true;
 			}
 			else if(x > 100 && x < 200 && y > 0 && y < 150) {	//Button 2
-				m.onContactsButtonClick();
+				m.onContacts();
 				return true;
 			}
 			else if(x > 200 && x < 300 && y > 0 && y < 150) {	//Button 3
-				m.onFriendsButtonClick();
+				m.onFriends();
 				return true;
 			}
 			else if(x > 300 && x < 400 && y > 0 && y < 150) {	//Button 4
-				m.onGamesButtonClick();
+				m.onGames();
 				return true;
 			}
 			else if(x > 400 && x < 500 && y > 0 && y < 150) {	//Button 5
-				m.onMoreButtonClick();
+				m.onMore();
 				return true;
 			}
 		}
