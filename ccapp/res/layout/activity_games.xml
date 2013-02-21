@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >  
+    
+    <LinearLayout 	
+        android:orientation="horizontal" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content">
+			
+		<ImageView
+	      android:layout_width="330px"
+	      android:layout_height="50px"
+	      android:src="@drawable/ccapp_header"/>	
+		    
+		<ImageButton 
+		    android:id="@+id/panic"
+			android:layout_width="wrap_content" 
+			android:layout_height="50px" 
+			android:src="@drawable/ccapp_panic"
+			android:onClick="onPanicButtonClick"/>	
+	</LinearLayout>  
+	
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/back" 
+        android:onClick="onFinishButtonClick"/>
+    
+    <com.example.ccapp.ButtonView
+        android:layout_alignParentBottom="true"
+        android:id="@+id/button"
+        android:layout_width="fill_parent"
+        android:layout_height="150px"/>
+    
+
+
+</RelativeLayout>
