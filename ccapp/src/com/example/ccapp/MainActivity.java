@@ -2,19 +2,23 @@ package com.example.ccapp;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-	ImageButton imageButton;
+	public static final int VoiceActivity_ID = 1;
+	public static final int ContactsActivity_ID = 2;
+	public static final int FriendsActivity_ID = 3;
+	public static final int GamesActivity_ID = 4;
+	public static final int MoreActivity_ID = 5;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		ButtonView button = (ButtonView)findViewById(R.id.button);
+		button.setMainActivity(this);
 	}
 
 	@Override
@@ -24,5 +28,28 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
+	public void onVoice() {
+		Intent i = new Intent(this, VoiceActivity.class);
+		startActivityForResult(i, VoiceActivity_ID);
+	}
+	
+	public void onContacts() {
+		Intent i = new Intent(this, ContactsActivity.class);
+		startActivityForResult(i, ContactsActivity_ID);
+	}
+	
+	public void onFriends() {
+		Intent i = new Intent(this, FriendsActivity.class);
+		startActivityForResult(i, FriendsActivity_ID);
+	}
+	
+	public void onGames() {
+		Intent i = new Intent(this, GamesActivity.class);
+		startActivityForResult(i, GamesActivity_ID);
+	}
 
+	public void onMore() {
+		Intent i = new Intent(this, MoreActivity.class);
+		startActivityForResult(i, MoreActivity_ID);
+	}
 }
