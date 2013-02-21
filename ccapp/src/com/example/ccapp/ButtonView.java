@@ -8,12 +8,14 @@ import android.graphics.Typeface;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 public class ButtonView extends View {
 
 	protected ShapeDrawable button1, button2, button3, button4, button5;
 	protected Paint text1, text2, text3, text4, text5;
+	MainActivity m;
 	
 	public ButtonView(Context c) {
 		super(c);
@@ -88,5 +90,37 @@ public class ButtonView extends View {
 		canvas.drawText("Friends", 220, 70, text3);
 		canvas.drawText("Games", 330, 70, text4);
 		canvas.drawText("More", 430, 70, text5);
+	}
+	
+	public void setMainActivity(MainActivity main) {
+		m = main;
+	}
+	
+	public boolean onTouchEvent(MotionEvent e) {
+		if(e.getAction() == MotionEvent.ACTION_DOWN) {
+			int x = (int)e.getX();
+			int y = (int)e.getY();
+			if(x > 0 && x < 100 && y > 0 && y < 150) {	//Button 1
+				m.onVoice();
+				return true;
+			}
+			else if(x > 100 && x < 200 && y > 0 && y < 150) {	//Button 2
+				m.onContactsButtonClick();
+				return true;
+			}
+			else if(x > 200 && x < 300 && y > 0 && y < 150) {	//Button 3
+				m.onFriendsButtonClick();
+				return true;
+			}
+			else if(x > 300 && x < 400 && y > 0 && y < 150) {	//Button 4
+				m.onGamesButtonClick();
+				return true;
+			}
+			else if(x > 400 && x < 500 && y > 0 && y < 150) {	//Button 5
+				m.onMoreButtonClick();
+				return true;
+			}
+		}
+		return false;
 	}
 }
