@@ -10,10 +10,11 @@
 		android:layout_width="fill_parent" 
 		android:layout_height="wrap_content">
 			
-		<ImageView
+		<ImageButton
 	      android:layout_width="330px"
 	      android:layout_height="50px"
-	      android:src="@drawable/ccapp_header"/>	
+	      android:src="@drawable/ccapp_header"
+	      android:onClick="onHomePageClick"/>	
 		    
 		<ImageButton 
 		    android:id="@+id/panic"

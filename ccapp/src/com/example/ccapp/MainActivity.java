@@ -1,7 +1,6 @@
 package com.example.ccapp;
 
-import java.util.ArrayList;
-
+import com.example.ccapp.TaskList.TaskListItemClickListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
@@ -15,7 +14,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements TaskListItemClickListener {
 
 	public static final int VoiceActivity_ID = 1;
 	public static final int ContactsActivity_ID = 2;
@@ -95,5 +94,13 @@ public class MainActivity extends Activity {
 		callIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
 		startActivity(callIntent);
 		
+	}
+	
+	public void onHomePageClick(View view) {
+		
+	}
+
+	public void onTaskListItemClick(int position) {
+		//Go to calendar here		
 	}
 }
