@@ -2,8 +2,10 @@ package com.example.ccapp;
 
 import java.util.ArrayList;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -47,8 +49,12 @@ public class MainActivity extends Activity {
 	}
 	
 	public void onFriends() {
-		Intent i = new Intent(this, FriendsActivity.class);
-		startActivityForResult(i, FriendsActivity_ID);
+		//Intent i = new Intent(this, FriendsActivity.class);
+		//startActivityForResult(i, FriendsActivity_ID);
+		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.facebook.com"));
+		startActivity(browserIntent);
+		
+		
 	}
 	
 	public void onGames() {
@@ -61,12 +67,27 @@ public class MainActivity extends Activity {
 		startActivityForResult(i, MoreActivity_ID);
 	}
 	
+	// this section connects to the other apps
+	
+	public void onGamesApp() {
+		Intent intent = new Intent("android.intent.action.MAIN");
+	    intent.setComponent(ComponentName.unflattenFromString("com.android.calendar"));
+	    intent.addCategory("android.intent.category.LAUNCHER");
+	    startActivity(intent);
+	}
+	
 	public void onPanicButtonClick(View view) {
-		Context context = getApplicationContext();
-		CharSequence text = "You clicked the panic button!";
-		int duration = Toast.LENGTH_SHORT;
+		//Context context = getApplicationContext();
+		//CharSequence text = "You clicked the panic button!";
+		//int duration = Toast.LENGTH_SHORT;
 
-		Toast toast = Toast.makeText(context, text, duration);
-		toast.show();
+		//Toast toast = Toast.makeText(context, text, duration);
+		//toast.show();
+		
+		Intent callIntent = new Intent(Intent.ACTION_CALL);
+		callIntent.setData(Uri.parse("tel:2152790135"));
+		callIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
+		startActivity(callIntent);
+		
 	}
 }

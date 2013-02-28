@@ -1,6 +1,7 @@
 package com.example.ccapp;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,4 +32,8 @@ public class GamesActivity extends Activity {
 		Toast toast = Toast.makeText(context, text, duration);
 		toast.show();
 	}
+	
+
+	
+	
 }
