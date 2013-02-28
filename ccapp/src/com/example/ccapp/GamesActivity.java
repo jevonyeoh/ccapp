@@ -9,18 +9,19 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
-public class GamesActivity extends Activity {
+public class GamesActivity extends MainActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_games);
+		ButtonView button = (ButtonView)findViewById(R.id.button);
+		button.setMainActivity(this);
 	}
 	
 	public void onFinishButtonClick(View view) {
 		Intent i = new Intent();
-		setResult(RESULT_OK, i);
-		
+		setResult(RESULT_OK, i);	
 		finish();
 	}
 	
