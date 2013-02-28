@@ -16,13 +16,14 @@ public class GamesActivity extends MainActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_games);
 		ButtonView button = (ButtonView)findViewById(R.id.button);
+		GamesMenu gamesmenu = (GamesMenu)findViewById(R.id.gamesmenu);
 		button.setMainActivity(this);
+		gamesmenu.setMainActivity(this);
 	}
 	
 	public void onFinishButtonClick(View view) {
 		Intent i = new Intent();
-		setResult(RESULT_OK, i);
-		
+		setResult(RESULT_OK, i);	
 		finish();
 	}
 	

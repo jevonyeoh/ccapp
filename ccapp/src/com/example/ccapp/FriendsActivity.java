@@ -8,12 +8,14 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
-public class FriendsActivity extends Activity {
+public class FriendsActivity extends MainActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_friends);
+		ButtonView button = (ButtonView)findViewById(R.id.button);
+		button.setMainActivity(this);
 	}
 	
 	public void onFinishButtonClick(View view) {

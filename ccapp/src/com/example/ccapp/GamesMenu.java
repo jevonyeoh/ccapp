@@ -22,13 +22,12 @@ public class GamesMenu extends View {
 		super(c);
 
 		init();
-		
+		/*
 		setHorizontalScrollBarEnabled(true);
 		setVerticalScrollBarEnabled(true);
-
 		TypedArray a = c.obtainStyledAttributes(R.styleable.View);
 		initializeScrollbars(a);
-		a.recycle();
+		a.recycle();*/
 	}
 
 	public GamesMenu(Context c, AttributeSet a) {
@@ -36,12 +35,12 @@ public class GamesMenu extends View {
 
 		init();
 		
+		/*
 		setHorizontalScrollBarEnabled(true);
 		setVerticalScrollBarEnabled(true);
-
 		TypedArray ta = c.obtainStyledAttributes(R.styleable.View);
 		initializeScrollbars(ta);
-		ta.recycle();
+		ta.recycle();*/
 		
 	}
 	
@@ -60,7 +59,7 @@ public class GamesMenu extends View {
 		
 		app4 = new ShapeDrawable(new RectShape());
 		app4.getPaint().setColor(Color.RED);
-		app4.setBounds(250, 250, 400, 400);
+		app4.setBounds(400, 400, 500, 700);
 		
 		apptext = new Paint();
 		apptext.setColor(Color.BLACK);
@@ -91,18 +90,22 @@ public class GamesMenu extends View {
 			int y = (int)e.getY();
 			if(x > 50 && x < 200 && y > 50 && y < 200) {	//App 1
 				m.onGamesApp();
+
 				return true;
 			}
 			else if(x > 250 && x < 400 && y > 50 && y < 200) {	//App 2
 				m.onGamesApp();
+
 				return true;
 			}
-			else if(x > 50 && x < 400 && y > 50 && y < 200) {	//App 3
+			else if(x > 50 && x < 400 && y > 250 && y < 400) {	//App 3
 				m.onGamesApp();
+
 				return true;
 			}
 			else if(x > 250 && x < 400 && y > 250 && y < 400) {	//App 4
 				m.onGamesApp();
+
 				return true;
 			}
 

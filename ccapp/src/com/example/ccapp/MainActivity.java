@@ -60,6 +60,12 @@ public class MainActivity extends Activity {
 	public void onGames() {
 		Intent i = new Intent(this, GamesActivity.class);
 		startActivityForResult(i, GamesActivity_ID);
+		
+		//Intent intent = new Intent("android.intent.action.MAIN");
+	    //intent.setComponent(ComponentName.unflattenFromString("com.google.android.calendar"));
+	    //intent.addCategory("android.intent.category.LAUNCHER");
+	    //startActivity(intent);
+		
 	}
 
 	public void onMore() {

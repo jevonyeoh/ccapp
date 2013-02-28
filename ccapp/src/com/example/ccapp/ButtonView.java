@@ -15,6 +15,8 @@ public class ButtonView extends View {
 
 	protected ShapeDrawable button1, button2, button3, button4, button5;
 	protected Paint text1, text2, text3, text4, text5;
+	private static final int width = 480;
+	private static final int height = 150;
 	MainActivity m;
 	
 	public ButtonView(Context c) {
@@ -30,23 +32,23 @@ public class ButtonView extends View {
 	protected void init() {
 		button1 = new ShapeDrawable(new RectShape());
 		button1.getPaint().setColor(Color.GRAY);
-		button1.setBounds(0, 0, 100, 150);
+		button1.setBounds(0, 0, width/5, height);
 		
 		button2 = new ShapeDrawable(new RectShape());
 		button2.getPaint().setColor(Color.BLACK);
-		button2.setBounds(100, 0, 200, 150);
+		button2.setBounds(width/5, 0, width*2/5, height);
 		
 		button3 = new ShapeDrawable(new RectShape());
 		button3.getPaint().setColor(Color.GRAY);
-		button3.setBounds(200, 0, 300, 150);
+		button3.setBounds(width*2/5, 0, width*3/5, height);
 		
 		button4 = new ShapeDrawable(new RectShape());
 		button4.getPaint().setColor(Color.BLACK);
-		button4.setBounds(300, 0, 400, 150);
+		button4.setBounds(width*3/5, 0, width*4/5, height);
 		
 		button5 = new ShapeDrawable(new RectShape());
 		button5.getPaint().setColor(Color.GRAY);
-		button5.setBounds(400, 0, 500, 150);
+		button5.setBounds(width*4/5, 0, width, height);
 		
 		text1 = new Paint();
 		text1.setColor(Color.BLACK);
@@ -85,11 +87,11 @@ public class ButtonView extends View {
 		button3.draw(canvas);
 		button4.draw(canvas);
 		button5.draw(canvas);
-		canvas.drawText("Voice", 30, 70, text1);
-		canvas.drawText("Contacts", 115, 70, text2);
-		canvas.drawText("Friends", 220, 70, text3);
-		canvas.drawText("Games", 330, 70, text4);
-		canvas.drawText("More", 430, 70, text5);
+		canvas.drawText("Voice", 30, height/2, text1);
+		canvas.drawText("Contacts", width/5+15, height/2, text2);
+		canvas.drawText("Friends", width*2/5+20, height/2, text3);
+		canvas.drawText("Games", width*3/5+30, height/2, text4);
+		canvas.drawText("More", width*4/5+30, height/2, text5);
 	}
 	
 	public void setMainActivity(MainActivity main) {
@@ -100,23 +102,23 @@ public class ButtonView extends View {
 		if(e.getAction() == MotionEvent.ACTION_DOWN) {
 			int x = (int)e.getX();
 			int y = (int)e.getY();
-			if(x > 0 && x < 100 && y > 0 && y < 150) {	//Button 1
+			if(x > 0 && x < width/5 && y > 0 && y < height) {	//Button 1
 				m.onVoice();
 				return true;
 			}
-			else if(x > 100 && x < 200 && y > 0 && y < 150) {	//Button 2
+			else if(x > width/5 && x < width*2/5 && y > 0 && y < height) {	//Button 2
 				m.onContacts();
 				return true;
 			}
-			else if(x > 200 && x < 300 && y > 0 && y < 150) {	//Button 3
+			else if(x > width*2/5 && x < width*3/5 && y > 0 && y < height) {	//Button 3
 				m.onFriends();
 				return true;
 			}
-			else if(x > 300 && x < 400 && y > 0 && y < 150) {	//Button 4
+			else if(x > width*3/5 && x < width*4/5 && y > 0 && y < height) {	//Button 4
 				m.onGames();
 				return true;
 			}
-			else if(x > 400 && x < 500 && y > 0 && y < 150) {	//Button 5
+			else if(x > width*4/5 && x < width && y > 0 && y < height) {	//Button 5
 				m.onMore();
 				return true;
 			}
