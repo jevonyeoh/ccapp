@@ -33,4 +33,9 @@ public class VoiceActivity extends MainActivity {
 		Toast toast = Toast.makeText(context, text, duration);
 		toast.show();
 	}
+	
+	public void onHomePageClick(View view) {
+		Intent i = new Intent(this, MainActivity.class);
+		startActivity(i);
+	}
 }

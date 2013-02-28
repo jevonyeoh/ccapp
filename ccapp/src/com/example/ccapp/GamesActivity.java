@@ -36,7 +36,8 @@ public class GamesActivity extends MainActivity {
 		toast.show();
 	}
 	
-
-	
-	
+	public void onHomePageClick(View view) {
+		Intent i = new Intent(this, MainActivity.class);
+		startActivity(i);
+	}
 }
