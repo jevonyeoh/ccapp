@@ -21,12 +21,6 @@ public class GamesActivity extends MainActivity {
 		gamesmenu.setMainActivity(this);
 	}
 	
-	public void onFinishButtonClick(View view) {
-		Intent i = new Intent();
-		setResult(RESULT_OK, i);	
-		finish();
-	}
-	
 	public void onPanicButtonClick(View view) {
 		Context context = getApplicationContext();
 		CharSequence text = "You clicked the panic button!";

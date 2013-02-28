@@ -25,7 +25,8 @@
             android:src="@drawable/ccapp_panic" />
     </LinearLayout>
 
-    <ScrollView
+    
+    <!--  <ScrollView
         android:id="@+id/scroller"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -42,7 +43,7 @@
             android:background="#157DEC"
             android:scrollbars="vertical"
             android:text="@string/sampletasks" />
-    </ScrollView>
+    </ScrollView> -->
 
     <com.example.ccapp.ButtonView
         android:id="@+id/button"
@@ -58,5 +59,15 @@
         android:layout_below="@+id/linearLayout1"
         android:background="#157DEC"
         android:src="@drawable/soothing" />
+
+    <fragment
+        android:id="@+id/tasks"
+        android:name="com.example.ccapp.TaskList"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_above="@+id/button"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/image"
+        tools:layout="@android:layout/list_content" />
 
 </RelativeLayout>

@@ -23,13 +23,6 @@ public class ContactsActivity extends MainActivity implements ListFragmentItemCl
 		button.setMainActivity(this);
 	}
 	
-	public void onFinishButtonClick(View view) {
-		Intent i = new Intent();
-		setResult(RESULT_OK, i);
-		
-		finish();
-	}
-	
 	public void onListFragmentItemClick(String number) {
 		Intent callIntent = new Intent(Intent.ACTION_CALL);
 		callIntent.setData(Uri.parse("tel:" + number));

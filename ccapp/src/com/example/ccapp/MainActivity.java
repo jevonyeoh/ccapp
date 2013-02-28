@@ -101,6 +101,7 @@ public class MainActivity extends Activity implements TaskListItemClickListener 
 	}
 
 	public void onTaskListItemClick(int position) {
-		//Go to calendar here		
+		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/calendar/embed?mode=week&src=ccapstick.penn%40gmail.com&ctz=America/New_York"));
+		startActivity(browserIntent);		
 	}
 }

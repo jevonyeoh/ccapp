@@ -24,7 +24,7 @@ public final class R {
         public static final int menu_settings=0x7f070007;
         public static final int names=0x7f070001;
         public static final int panic=0x7f070000;
-        public static final int scroller=0x7f070005;
+        public static final int tasks=0x7f070005;
     }
     public static final class layout {
         public static final int activity_contacts=0x7f030000;
