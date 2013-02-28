@@ -71,7 +71,7 @@ public class MainActivity extends Activity {
 	
 	public void onGamesApp() {
 		Intent intent = new Intent("android.intent.action.MAIN");
-	    intent.setComponent(ComponentName.unflattenFromString("com.android.calendar"));
+	    intent.setComponent(ComponentName.unflattenFromString("com.google.android.calendar"));
 	    intent.addCategory("android.intent.category.LAUNCHER");
 	    startActivity(intent);
 	}
