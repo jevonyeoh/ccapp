@@ -59,7 +59,7 @@ public class GamesMenu extends View {
 		
 		app4 = new ShapeDrawable(new RectShape());
 		app4.getPaint().setColor(Color.RED);
-		app4.setBounds(400, 400, 500, 700);
+		app4.setBounds(250, 250, 400, 400);
 		
 		apptext = new Paint();
 		apptext.setColor(Color.BLACK);
