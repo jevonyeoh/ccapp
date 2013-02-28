@@ -29,8 +29,8 @@
 		</LinearLayout>
    
     <fragment
-        android:id="@+id/country_fragment"
-        android:name="com.example.ccapp.CountryList"
+        android:id="@+id/names"
+        android:name="com.example.ccapp.NameList"
         android:layout_width="fill_parent"
         android:layout_height="329dp"
         tools:layout="@android:layout/list_content" />
@@ -42,8 +42,6 @@
         android:layout_width="fill_parent"
         android:layout_height="150px"
         android:layout_alignParentBottom="true" />
-
-
 
     <Button
         android:layout_width="wrap_content"

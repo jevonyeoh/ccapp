@@ -1,14 +1,19 @@
 package com.example.ccapp;
 
+import com.example.ccapp.NameList.ListFragmentItemClickListener;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
-public class ContactsActivity extends MainActivity {
+public class ContactsActivity extends MainActivity implements ListFragmentItemClickListener {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +28,13 @@ public class ContactsActivity extends MainActivity {
 		setResult(RESULT_OK, i);
 		
 		finish();
+	}
+	
+	public void onListFragmentItemClick(String number) {
+		Intent callIntent = new Intent(Intent.ACTION_CALL);
+		callIntent.setData(Uri.parse("tel:" + number));
+		callIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
+		startActivity(callIntent);
 	}
 	
 	public void onPanicButtonClick(View view) {
