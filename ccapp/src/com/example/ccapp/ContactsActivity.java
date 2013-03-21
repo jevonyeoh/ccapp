@@ -1,15 +1,14 @@
 package com.example.ccapp;
 
+import java.util.Random;
+
 import com.example.ccapp.NameList.ListFragmentItemClickListener;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Toast;
 
@@ -42,5 +41,25 @@ public class ContactsActivity extends MainActivity implements ListFragmentItemCl
 	public void onHomePageClick(View view) {
 		Intent i = new Intent(this, MainActivity.class);
 		startActivity(i);
+	}
+	
+	public void onAddButtonClick(View view) {
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+		SharedPreferences.Editor editor = prefs.edit();
+		
+		Random r = new Random();
+		int fourDigit = 1000 + r.nextInt(10000);
+		String name = String.valueOf(fourDigit);
+		
+		editor.putString(name, "10101001"); // value to store
+		editor.commit();
+	}
+	
+	public void onRemoveButtonClick(View view) {
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+		SharedPreferences.Editor editor = prefs.edit();
+		
+		editor.clear();
+		editor.commit();
 	}
 }

@@ -1,17 +1,28 @@
 package com.example.ccapp;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
 import android.app.Activity;
 import android.app.ListFragment;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
  
 public class NameList extends ListFragment {
  
-    String[] names = new String[] {
+	String[] names;
+	String[] numbers;
+	
+    /*String[] names = new String[] {
         "Adam",
         "Bob",
         "Carrie",
@@ -35,7 +46,7 @@ public class NameList extends ListFragment {
     	"2152790137",
     	"2152790138",
     	"2152790139"
-    };
+    };*/
  
     ListFragmentItemClickListener ifaceItemClickListener;
     
@@ -58,12 +69,30 @@ public class NameList extends ListFragment {
     }
     
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    	SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
+    	HashMap<String, String> map = (HashMap<String, String>)prefs.getAll();
+    	
+    	names = new String[map.size()];
+    	numbers = new String[map.size()];
+    	
+    	int count = 0;
+    	for(Map.Entry<String,String> entry : map.entrySet()){
+    	    names[count] = entry.getKey();
+    	    numbers[count] = entry.getValue();
+    	    count++;
+    	}
+    	
         /** Creating an array adapter to store the list of countries **/
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(inflater.getContext(), android.R.layout.simple_list_item_1,names);
  
         /** Setting the list adapter for the ListFragment */
         setListAdapter(adapter);
+        
+        //View v = inflater.inflate(R.layout.activity_contacts, container, false);
+
+        //Button b = (Button)v.findViewById(R.id.add);
+        //b.setOnClickListener(this);
  
         return super.onCreateView(inflater, container, savedInstanceState);
     }
@@ -74,4 +103,32 @@ public class NameList extends ListFragment {
         /** Invokes the implementation of the method onListFragmentItemClick in the hosting activity */
         ifaceItemClickListener.onListFragmentItemClick(numbers[position]);
     }
+
+	/*public void onClick(View v) {
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
+		SharedPreferences.Editor editor = prefs.edit();
+		
+		Random r = new Random();
+		int fourDigit = 1000 + r.nextInt(10000);
+		String name = String.valueOf(fourDigit);
+		
+		editor.putString(name, "10101001"); // value to store
+		editor.commit();
+		
+		load(prefs);
+	}*/
+	
+	/*public void load(SharedPreferences prefs) {
+		HashMap<String, String> map = (HashMap<String, String>)prefs.getAll();
+    	
+    	names = new String[map.size()];
+    	numbers = new String[map.size()];
+    	
+    	int count = 0;
+    	for(Map.Entry<String,String> entry : map.entrySet()){
+    	    names[count] = entry.getKey();
+    	    numbers[count] = entry.getValue();
+    	    count++;
+    	}
+	}*/
 }
