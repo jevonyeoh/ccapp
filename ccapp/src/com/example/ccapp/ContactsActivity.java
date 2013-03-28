@@ -17,6 +17,9 @@ public class ContactsActivity extends MainActivity implements ListFragmentItemCl
 	public static final int AddC_ID = 1;
 	public static final int EditC_ID = 2;
 	
+	public int numberContacts = 0;
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -39,6 +42,8 @@ public class ContactsActivity extends MainActivity implements ListFragmentItemCl
 		editor.remove(name);
 		editor.commit();
 		
+		numberContacts--;
+		
 		finish();
 		Intent i = new Intent(this, ContactsActivity.class);
 		startActivity(i);
@@ -59,6 +64,7 @@ public class ContactsActivity extends MainActivity implements ListFragmentItemCl
 	public void onAddButtonClick(View view) {
 		Intent i = new Intent(this, AddCActivity.class);
 		startActivityForResult(i, AddC_ID);
+		
 	}
 	
 	public void onRemoveButtonClick(View view) {
@@ -69,8 +75,10 @@ public class ContactsActivity extends MainActivity implements ListFragmentItemCl
 		editor.commit();
 	}
 	
-	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		super.onActivityResult(requestCode, resultCode, intent);
+		
+		
 		
 		switch(requestCode) {
 			case AddC_ID:
@@ -83,6 +91,9 @@ public class ContactsActivity extends MainActivity implements ListFragmentItemCl
 					
 					editor.putString(name, number); // value to store
 					editor.commit();
+					
+					numberContacts++;
+					
 					
 					finish();
 					Intent i = new Intent(this, ContactsActivity.class);
@@ -104,7 +115,7 @@ public class ContactsActivity extends MainActivity implements ListFragmentItemCl
 					finish();
 					Intent i = new Intent(this, ContactsActivity.class);
 					startActivity(i);
-			}
+				}
 		}
 	}
 }
