@@ -23,6 +23,11 @@
 			android:src="@drawable/ccapp_panic"
 			android:onClick="onPanicButtonClick"/>	
 	</LinearLayout>  
+	
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
     
     <com.example.ccapp.ButtonView
         android:layout_alignParentBottom="true"

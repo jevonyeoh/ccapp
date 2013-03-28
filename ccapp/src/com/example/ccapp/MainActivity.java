@@ -55,10 +55,10 @@ public class MainActivity extends Activity implements TaskListItemClickListener 
 	}
 	
 	public void onFriends() {
-		//Intent i = new Intent(this, FriendsActivity.class);
-		//startActivityForResult(i, FriendsActivity_ID);
-		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.facebook.com"));
-		startActivity(browserIntent);		
+		Intent i = new Intent(this, FriendsActivity.class);
+		startActivityForResult(i, FriendsActivity_ID);
+		//Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.facebook.com"));
+		//startActivity(browserIntent);		
 	}
 	
 	public void onGames() {
