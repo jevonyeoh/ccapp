@@ -31,15 +31,6 @@ public class ContactsActivity extends MainActivity implements ListFragmentItemCl
 		startActivity(callIntent);
 	}
 	
-	public void onPanicButtonClick(View view) {
-		Context context = getApplicationContext();
-		CharSequence text = "You clicked the panic button!";
-		int duration = Toast.LENGTH_SHORT;
-
-		Toast toast = Toast.makeText(context, text, duration);
-		toast.show();
-	}
-	
 	public void onHomePageClick(View view) {
 		Intent i = new Intent(this, MainActivity.class);
 		startActivity(i);
@@ -66,5 +57,17 @@ public class ContactsActivity extends MainActivity implements ListFragmentItemCl
 		
 		editor.clear();
 		editor.commit();
+	}
+	
+	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		super.onActivityResult(requestCode, resultCode, intent);
+		
+		switch(requestCode) {
+			case AddC_ID:
+				String name = (String)(intent.getExtras().get("NAME"));
+				String number = (String)(intent.getExtras().get("NUMBER"));
+				
+				Toast.makeText(this, "Name/number " + name + number, Toast.LENGTH_LONG).show();		
+		}
 	}
 }

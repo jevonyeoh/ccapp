@@ -18,14 +18,6 @@ public class MoreActivity extends MainActivity {
 		button.setMainActivity(this);
 	}
 	
-	public void onPanicButtonClick(View view) {
-		Context context = getApplicationContext();
-		CharSequence text = "You clicked the panic button!";
-		int duration = Toast.LENGTH_SHORT;
-
-		Toast toast = Toast.makeText(context, text, duration);
-		toast.show();
-	}
 	
 	public void onHomePageClick(View view) {
 		Intent i = new Intent(this, MainActivity.class);
