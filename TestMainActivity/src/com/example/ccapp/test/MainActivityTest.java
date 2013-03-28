@@ -113,31 +113,55 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 
 		assertTrue(getInstrumentation().checkMonitorHit(monitor, 1));
 	}	
-	 	
-	public void testMainToFriends() {
-		assertNotNull(buttonView);		
+	
+	/*public void testMainToFriends() {
+		assertNotNull(buttonView);
 		
-		Instrumentation.ActivityMonitor mBrowserActivityMonitor = 
-				new Instrumentation.ActivityMonitor(Browser.class.getName(), null, false);
-	    
-		getInstrumentation().addMonitor(mBrowserActivityMonitor);
-		
-		//ActivityMonitor monitor = getInstrumentation().addMonitor(
-          //      Browser.class.getCanonicalName(), null, true);
+		ActivityMonitor monitor = getInstrumentation().addMonitor(
+                "com.google.android.browser.BrowserActivity", null, true);
 		
 		main.runOnUiThread(new Runnable() {
 			public void run() {
 				MotionEvent me = MotionEvent.obtain(SystemClock.uptimeMillis(),
-				SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, 240, 50, 0);
-				// x > width*2/5 && x < width*3/5 && y > 0 && y < height; width = 480, height 150
+				SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, 450, 50, 0);
+				// x > width*4/5 && x < width && y > 0 && y < height; width = 480, height 150
 				buttonView.dispatchTouchEvent(me);
 			}
 		});
 		// this waits for the UI to finish its stuff
 		getInstrumentation().waitForIdleSync();
 
-		Activity activity = mBrowserActivityMonitor.waitForActivityWithTimeout(15 * 1000);
-	    assertNotNull("Activity was not started", activity);
+		assertTrue(getInstrumentation().getClass());
+\	}*/
+	
+	public void testMainToFriends2() {
+        assertNotNull(buttonView);        
+        
+        Instrumentation.ActivityMonitor mBrowserActivityMonitor = 
+                new Instrumentation.ActivityMonitor(Browser.class.getName(), null, false);
+        
+        getInstrumentation().addMonitor(mBrowserActivityMonitor);
+        
+        //ActivityMonitor monitor = getInstrumentation().addMonitor(
+          //      Browser.class.getCanonicalName(), null, true);
+        
+        main.runOnUiThread(new Runnable() {
+            public void run() {
+                MotionEvent me = MotionEvent.obtain(SystemClock.uptimeMillis(),
+                SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, 240, 50, 0);
+                // x > width*2/5 && x < width*3/5 && y > 0 && y < height; width = 480, height 150
+                buttonView.dispatchTouchEvent(me);
+            }
+        });
+        // this waits for the UI to finish its stuff
+        //getInstrumentation().waitForIdleSync();
+        
+        //assertEquals(1, mBrowserActivityMonitor.getHits());
+        
+        //assertEquals( Browser.class);
+
+        Activity activity = mBrowserActivityMonitor.waitForActivityWithTimeout(15 * 1000);
+        assertNotNull("Activity was not started", activity);
 	}
 	
 	public void testMainToCal() {
@@ -165,5 +189,9 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
         //assertEquals(1, mBrowserActivityMonitor.getHits());
         
         //assertEquals( Browser.class);
+
+        Activity activity = mBrowserActivityMonitor.waitForActivityWithTimeout(15 * 1000);
+        assertNotNull("Activity was not started", activity);
 	}
+	
 }

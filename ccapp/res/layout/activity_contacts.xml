@@ -10,33 +10,53 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
         
-	    <LinearLayout 	
-	        android:orientation="horizontal" 
-			android:layout_width="fill_parent" 
-			android:layout_height="wrap_content">
-				
-			<ImageButton
-		      android:layout_width="330px"
-		      android:layout_height="50px"
-		      android:src="@drawable/ccapp_header"
-		      android:onClick="onHomePageClick"/>	
-			    
-			<ImageButton 
-			    android:id="@+id/panic"
-				android:layout_width="wrap_content" 
-				android:layout_height="50px" 
-				android:src="@drawable/ccapp_panic"
-				android:onClick="onPanicButtonClick"/>	
-		</LinearLayout>
-   
-    <fragment
-        android:id="@+id/names"
-        android:name="com.example.ccapp.NameList"
-        android:layout_width="fill_parent"
-        android:layout_height="329dp"
-        tools:layout="@android:layout/list_content" />
-	    	    
-	</LinearLayout>
+        <LinearLayout     
+            android:orientation="horizontal" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content">
+                
+            <ImageButton
+              android:layout_width="330px"
+              android:layout_height="50px"
+              android:src="@drawable/ccapp_header"
+              android:onClick="onHomePageClick"/>    
+                
+            <ImageButton 
+                android:id="@+id/panic"
+                android:layout_width="wrap_content" 
+                android:layout_height="50px" 
+                android:src="@drawable/ccapp_panic"
+                android:onClick="onPanicButtonClick"/>    
+        </LinearLayout>
+
+        <LinearLayout     
+            android:orientation="horizontal" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content">
+        
+            <Button
+                android:id="@+id/add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onAddButtonClick"
+                android:text="Add" />
+    
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRemoveButtonClick"
+                android:text="Remove" />
+           
+        </LinearLayout>
+
+        <fragment
+            android:id="@+id/names"
+            android:name="com.example.ccapp.NameList"
+            android:layout_width="fill_parent"
+            android:layout_height="329dp"
+            tools:layout="@android:layout/list_content" />
+                
+    </LinearLayout>
 
     <com.example.ccapp.ButtonView
         android:id="@+id/button"

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="call">Are you sure?</string>
+    <string name="call_execute">Call</string>
+    <string name="call_cancel">Cancel</string>
+    
     <string name="app_name">ccapp</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>

@@ -1,12 +1,17 @@
 package com.example.ccapp;
 
+import java.util.List;
+
 import com.example.ccapp.TaskList.TaskListItemClickListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
@@ -28,6 +33,7 @@ public class MainActivity extends Activity implements TaskListItemClickListener 
 		setContentView(R.layout.activity_main);
 		ButtonView button = (ButtonView)findViewById(R.id.button);
 		button.setMainActivity(this);
+		
 	}
 
 	@Override
@@ -72,26 +78,60 @@ public class MainActivity extends Activity implements TaskListItemClickListener 
 	
 	// this section connects to the other apps
 	
-	public void onGamesApp() {
-		Intent intent = new Intent("android.intent.action.MAIN");
-	    intent.setComponent(ComponentName.unflattenFromString("com.google.android.calendar"));
-	    intent.addCategory("android.intent.category.LAUNCHER");
-	    startActivity(intent);
+	public boolean isPackageExists(String targetPackage) {
+		
+		List<ApplicationInfo> packages;
+		PackageManager pm;
+			pm = getPackageManager();
+			packages = pm.getInstalledApplications(0);
+			for (ApplicationInfo packageInfo : packages) {
+				if (packageInfo.packageName.equals(targetPackage)) 
+					return true;
+			}
+		return false;
+	}
+	
+	
+	public void onGamesApp(String packageName) {
+		
+		if (isPackageExists(packageName)) {
+			
+			Intent mIntent = getPackageManager().getLaunchIntentForPackage(packageName);
+			startActivity(mIntent);
+			
+			/*Intent intent = new Intent();
+		    intent.setComponent(ComponentName.unflattenFromString(packageName));
+		    intent.addCategory("android.intent.category.LAUNCHER");
+		    startActivity(intent);*/			
+		}		
+		else {
+			
+			Intent mIntent = getPackageManager().getLaunchIntentForPackage("com.android.browser");
+			startActivity(mIntent);
+			
+			/*Intent intent = new Intent();
+		    intent.setComponent(ComponentName.unflattenFromString("com.android.browser"));
+		    intent.addCategory("android.intent.category.LAUNCHER");
+		    startActivity(intent);*/			
+		}
 	}
 	
 	public void onPanicButtonClick(View view) {
-		//Context context = getApplicationContext();
-		//CharSequence text = "You clicked the panic button!";
-		//int duration = Toast.LENGTH_SHORT;
+		Context context = getApplicationContext();
+		CharSequence text = "Are you sure you want to call your Panic Contact?";
+		int duration = Toast.LENGTH_LONG;
+		
+		PanicDialogFragment panicDialog = new PanicDialogFragment();
+		panicDialog.show(getFragmentManager(), "panic");
 
 		//Toast toast = Toast.makeText(context, text, duration);
 		//toast.show();
-		
+		/*
 		Intent callIntent = new Intent(Intent.ACTION_CALL);
 		callIntent.setData(Uri.parse("tel:2152790135"));
 		callIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
 		startActivity(callIntent);
-		
+		*/
 	}
 	
 	public void onHomePageClick(View view) {

@@ -12,13 +12,13 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-public class GamesMenu extends View {
+public class FriendsMenu extends View {
 
 	protected ShapeDrawable app1, app2, app3, app4;
 	protected Paint apptext;
 	MainActivity m;
 	
-	public GamesMenu(Context c) {
+	public FriendsMenu(Context c) {
 		super(c);
 
 		init();
@@ -30,7 +30,7 @@ public class GamesMenu extends View {
 		a.recycle();*/
 	}
 
-	public GamesMenu(Context c, AttributeSet a) {
+	public FriendsMenu(Context c, AttributeSet a) {
 		super(c, a);
 
 		init();
