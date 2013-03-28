@@ -64,10 +64,20 @@ public class ContactsActivity extends MainActivity implements ListFragmentItemCl
 		
 		switch(requestCode) {
 			case AddC_ID:
-				String name = (String)(intent.getExtras().get("NAME"));
-				String number = (String)(intent.getExtras().get("NUMBER"));
-				
-				Toast.makeText(this, "Name/number " + name + number, Toast.LENGTH_LONG).show();		
+				if(resultCode != RESULT_CANCELED) {
+					String name = (String)(intent.getExtras().get("NAME"));
+					String number = (String)(intent.getExtras().get("NUMBER"));
+					
+					SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+					SharedPreferences.Editor editor = prefs.edit();
+					
+					editor.putString(name, number); // value to store
+					editor.commit();
+					
+					finish();
+					Intent i = new Intent(this, ContactsActivity.class);
+					startActivity(i);
+				}
 		}
 	}
 }
