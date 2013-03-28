@@ -30,6 +30,7 @@
         <activity android:name=".FriendsActivity" />
         <activity android:name=".GamesActivity" />
         <activity android:name=".MoreActivity" />
+        <activity android:name=".AddCActivity" />
     </application>
 
 </manifest>
