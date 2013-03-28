@@ -32,6 +32,7 @@
         <activity android:name=".GamesActivity" />
         <activity android:name=".MoreActivity" />
         <activity android:name=".AddCActivity" />
+        <activity android:name=".EditCActivity" />
     </application>
 
 </manifest>

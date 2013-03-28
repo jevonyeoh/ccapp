@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+  
+  <LinearLayout   
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  	   android:orientation="vertical" 
+  	   android:layout_width="fill_parent"
+  	   android:layout_height="fill_parent">
+  	
+    <LinearLayout 	
+	        android:orientation="horizontal" 
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content">
+				
+			<ImageButton
+		      android:layout_width="330px"
+		      android:layout_height="50px"
+		      android:src="@drawable/ccapp_header"
+		      android:onClick="onHomePageClick"/>	
+			    
+			<ImageButton 
+			    android:id="@+id/panic"
+				android:layout_width="wrap_content" 
+				android:layout_height="50px" 
+				android:src="@drawable/ccapp_panic"
+				android:onClick="onPanicButtonClick"/>	
+	</LinearLayout>  
+      
+      
+  	<LinearLayout android:orientation="horizontal"
+ 	  android:layout_width="fill_parent"
+ 	  android:layout_height="wrap_content">
+ 
+ 	  <TextView android:layout_width="wrap_content"
+ 	    android:layout_height="wrap_content" 
+ 	    android:text="Name" />
+ 
+ 	  <EditText android:id="@+id/names" 
+ 	    android:layout_width="wrap_content"
+ 	    android:layout_height="wrap_content" 
+ 	    android:layout_weight="1"/>
+ 
+    </LinearLayout>
+    
+  	<LinearLayout android:orientation="horizontal"
+ 	  android:layout_width="fill_parent"
+ 	  android:layout_height="wrap_content">
+ 
+ 	  <TextView android:layout_width="wrap_content"
+ 	    android:layout_height="wrap_content" 
+ 	    android:text="Number" />
+ 
+ 	  <EditText android:id="@+id/numbers" 
+ 	    android:layout_width="wrap_content"
+ 	    android:layout_height="wrap_content" 
+ 	    android:layout_weight="1"/>
+ 
+	</LinearLayout>
+
+  	<Button
+  	    android:id="@+id/clear"
+  	    android:layout_width="wrap_content"
+  	    android:layout_height="wrap_content"
+  	    android:onClick="onCancelButtonClick"
+  	    android:text="Cancel" />
+
+	<Button 
+	    android:id="@+id/save" 
+	    android:text="Edit"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:onClick="onEditButtonClick"/>
+
+	</LinearLayout>
+	
+</RelativeLayout>
