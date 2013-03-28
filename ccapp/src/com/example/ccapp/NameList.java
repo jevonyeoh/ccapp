@@ -60,7 +60,7 @@ public class NameList extends ListFragment {
     /** An interface for defining the callback method */
     public interface ListFragmentItemClickListener {
         /** This method will be invoked when an item in the ListFragment is clicked */
-        void onListFragmentItemClick(String number);
+        void onPhoneItemClick(String number);
         void onRemoveItemClick(String name);
         void onEditItemClick(String name, String number);
     }
@@ -136,6 +136,6 @@ public class NameList extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
  
         /** Invokes the implementation of the method onListFragmentItemClick in the hosting activity */
-        ifaceItemClickListener.onListFragmentItemClick(numbers[position]);
+        ifaceItemClickListener.onPhoneItemClick(numbers[position]);
     }
 }

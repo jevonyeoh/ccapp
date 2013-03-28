@@ -25,7 +25,7 @@ public class ContactsActivity extends MainActivity implements ListFragmentItemCl
 		button.setMainActivity(this);
 	}
 	
-	public void onListFragmentItemClick(String number) {
+	public void onPhoneItemClick(String number) {
 		Intent callIntent = new Intent(Intent.ACTION_CALL);
 		callIntent.setData(Uri.parse("tel:" + number));
 		callIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
@@ -44,12 +44,12 @@ public class ContactsActivity extends MainActivity implements ListFragmentItemCl
 		startActivity(i);
 	}
 	
-	/*public void onEditItemClick(String name, String number) {
+	public void onEditItemClick(String name, String number) {
 		Intent i = new Intent(this, EditCActivity.class);
 		i.putExtra("NAME", name);
 		i.putExtra("NUMBER", number);
 		startActivityForResult(i, EditC_ID);
-	}*/
+	}
 	
 	public void onHomePageClick(View view) {
 		Intent i = new Intent(this, MainActivity.class);
@@ -59,16 +59,6 @@ public class ContactsActivity extends MainActivity implements ListFragmentItemCl
 	public void onAddButtonClick(View view) {
 		Intent i = new Intent(this, AddCActivity.class);
 		startActivityForResult(i, AddC_ID);
-		
-		/*SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-		SharedPreferences.Editor editor = prefs.edit();
-		
-		Random r = new Random();
-		int fourDigit = 1000 + r.nextInt(10000);
-		String name = String.valueOf(fourDigit);
-		
-		editor.putString(name, "10101001"); // value to store
-		editor.commit();*/
 	}
 	
 	public void onRemoveButtonClick(View view) {
@@ -98,6 +88,23 @@ public class ContactsActivity extends MainActivity implements ListFragmentItemCl
 					Intent i = new Intent(this, ContactsActivity.class);
 					startActivity(i);
 				}
+			case EditC_ID:
+				if(resultCode != RESULT_CANCELED) {
+					String old = (String)(intent.getExtras().get("OLD"));
+					String name = (String)(intent.getExtras().get("NAME"));
+					String number = (String)(intent.getExtras().get("NUMBER"));
+					
+					SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+					SharedPreferences.Editor editor = prefs.edit();
+					
+					editor.remove(old);
+					editor.putString(name, number); // value to store
+					editor.commit();
+					
+					finish();
+					Intent i = new Intent(this, ContactsActivity.class);
+					startActivity(i);
+			}
 		}
 	}
 }
