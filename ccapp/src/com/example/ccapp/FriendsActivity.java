@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 public class FriendsActivity extends MainActivity {
@@ -14,6 +17,13 @@ public class FriendsActivity extends MainActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_friends);
+		
+		WebView myWebView = (WebView) findViewById(R.id.webview);
+		myWebView.loadUrl("http://m.facebook.com");
+		WebSettings webSettings = myWebView.getSettings();
+		webSettings.setJavaScriptEnabled(true);
+		myWebView.setWebViewClient(new WebViewClient());
+		
 		ButtonView button = (ButtonView)findViewById(R.id.button);
 		button.setMainActivity(this);
 	}

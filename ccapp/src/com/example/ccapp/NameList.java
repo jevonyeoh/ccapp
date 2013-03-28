@@ -1,7 +1,10 @@
 package com.example.ccapp;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 import android.app.Activity;
 import android.app.ListFragment;
@@ -76,25 +79,23 @@ public class NameList extends ListFragment {
         names = new String[map.size()];
         numbers = new String[map.size()];
         
+        Set<String> nameSet = map.keySet();
+        String[] nameArray = nameSet.toArray(new String[0]);
+        Arrays.sort(nameArray);
+                
         int count = 0;
-        for(Map.Entry<String,String> entry : map.entrySet()){
-            names[count] = entry.getKey();
-            numbers[count] = entry.getValue();
-            count++;
+        while (count < nameArray.length) {
+        	System.out.println(nameArray[count]);
+        	names[count] = nameArray[count];
+        	numbers[count] = map.get(nameArray[count]);
+        	count++;
         }
-        
-        
         
         /** Creating an array adapter to store the list of countries **/
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(inflater.getContext(), android.R.layout.simple_list_item_1,names);
  
         /** Setting the list adapter for the ListFragment */
         setListAdapter(adapter);
-        
-        //View v = inflater.inflate(R.layout.activity_contacts, container, false);
-
-        //Button b = (Button)v.findViewById(R.id.add);
-        //b.setOnClickListener(this);
  
         return super.onCreateView(inflater, container, savedInstanceState);
     }
@@ -105,32 +106,4 @@ public class NameList extends ListFragment {
         /** Invokes the implementation of the method onListFragmentItemClick in the hosting activity */
         ifaceItemClickListener.onListFragmentItemClick(numbers[position]);
     }
-
-    /*public void onClick(View v) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
-        SharedPreferences.Editor editor = prefs.edit();
-        
-        Random r = new Random();
-        int fourDigit = 1000 + r.nextInt(10000);
-        String name = String.valueOf(fourDigit);
-        
-        editor.putString(name, "10101001"); // value to store
-        editor.commit();
-        
-        load(prefs);
-    }*/
-    
-    /*public void load(SharedPreferences prefs) {
-        HashMap<String, String> map = (HashMap<String, String>)prefs.getAll();
-        
-        names = new String[map.size()];
-        numbers = new String[map.size()];
-        
-        int count = 0;
-        for(Map.Entry<String,String> entry : map.entrySet()){
-            names[count] = entry.getKey();
-            numbers[count] = entry.getValue();
-            count++;
-        }
-    }*/
 }
