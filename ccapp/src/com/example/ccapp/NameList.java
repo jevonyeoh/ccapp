@@ -11,10 +11,14 @@ import android.app.ListFragment;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -57,6 +61,8 @@ public class NameList extends ListFragment {
     public interface ListFragmentItemClickListener {
         /** This method will be invoked when an item in the ListFragment is clicked */
         void onListFragmentItemClick(String number);
+        void onRemoveItemClick(String name);
+        void onEditItemClick(String name, String number);
     }
     
     /** A callback function, executed when this fragment is attached to an activity */
@@ -96,8 +102,34 @@ public class NameList extends ListFragment {
  
         /** Setting the list adapter for the ListFragment */
         setListAdapter(adapter);
- 
+     
         return super.onCreateView(inflater, container, savedInstanceState);
+    }
+ 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        registerForContextMenu(this.getListView());
+    }
+    
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        menu.setHeaderTitle("Options");
+        menu.add(0, v.getId(), 0, "Edit");
+        menu.add(0, v.getId(), 0, "Remove");
+    }
+    
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+        if (item.getTitle().equals("Edit")) {
+        	ifaceItemClickListener.onEditItemClick(names[info.position], numbers[info.position]);
+       } else if (item.getTitle().equals("Remove")) {
+            ifaceItemClickListener.onRemoveItemClick(names[info.position]);
+       }
+        return super.onContextItemSelected(item);
     }
     
     @Override

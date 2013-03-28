@@ -15,6 +15,7 @@ import android.widget.Toast;
 public class ContactsActivity extends MainActivity implements ListFragmentItemClickListener {
 	
 	public static final int AddC_ID = 1;
+	public static final int EditC_ID = 2;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,25 @@ public class ContactsActivity extends MainActivity implements ListFragmentItemCl
 		callIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
 		startActivity(callIntent);
 	}
+	
+	public void onRemoveItemClick(String name) {
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+		SharedPreferences.Editor editor = prefs.edit();
+		
+		editor.remove(name);
+		editor.commit();
+		
+		finish();
+		Intent i = new Intent(this, ContactsActivity.class);
+		startActivity(i);
+	}
+	
+	/*public void onEditItemClick(String name, String number) {
+		Intent i = new Intent(this, EditCActivity.class);
+		i.putExtra("NAME", name);
+		i.putExtra("NUMBER", number);
+		startActivityForResult(i, EditC_ID);
+	}*/
 	
 	public void onHomePageClick(View view) {
 		Intent i = new Intent(this, MainActivity.class);
