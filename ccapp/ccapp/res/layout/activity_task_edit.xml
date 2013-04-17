@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:layout_width="330px"
+            android:layout_height="50px"
+            android:src="@drawable/ccapp_header"
+            android:onClick="onHomePageClick" />
+
+        <ImageButton
+            android:id="@+id/panic"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:onClick="onPanicButtonClick"
+            android:src="@drawable/ccapp_panic" />
+    </LinearLayout>
+    
+    <Spinner
+        android:id="@+id/category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout1"
+        android:entries="@array/priorities">
+    </Spinner>
+	
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/category">
+        
+        <EditText
+            android:id="@+id/task_edit_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/task_edit_summary"
+            android:imeOptions="actionNext">
+        </EditText>
+    </LinearLayout>
+    
+    <EditText
+        android:id="@+id/task_edit_description"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/button"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:hint="@string/task_edit_description"
+        android:imeOptions="actionNext" >
+
+    </EditText>
+    
+
+
+    <com.example.ccapp.ButtonView
+        android:id="@+id/button"
+        android:layout_width="fill_parent"
+        android:layout_height="150px"
+        android:layout_alignParentBottom="true" />
+
+    <Button
+        android:id="@+id/task_edit_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:text="@string/task_edit_confirm"
+        android:onClick="onSaveTask" />
+
+</RelativeLayout>
